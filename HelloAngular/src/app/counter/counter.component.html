@@ -1,0 +1,11 @@
+<button (click)="increment($event.clientX)">
+  {{ count }}
+</button>
+
+<input type="button" [value]="count" (click)="increment()" />
+
+<!--
+  buttonEl.addEventListener('click', ($event) => {
+    increment($event.clientX)
+  });
+-->

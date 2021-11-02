@@ -1,0 +1,15 @@
+<form>
+  <div>
+    Username : <input type="text" [value]="user.username" (input)="user.username = $any($event.target).value" />
+  </div>
+  <div>
+    Email : <input type="email" [value]="user.email" (input)="user.email = $any($event.target).value" />
+  </div>
+  <div>
+    Is Admin : <input type="checkbox" [checked]="user.isAdmin" (change)="user.isAdmin = $any($event.target).checked" />
+  </div>
+</form>
+
+<p>
+  Infos : {{user | json}}
+</p>
