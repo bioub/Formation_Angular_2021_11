@@ -9,6 +9,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { CounterComponent } from './counter/counter.component';
 import { MultiStateButtonComponent } from './multi-state-button/multi-state-button.component';
 import { SelectComponent } from './select/select.component';
+import { HighlightDirective } from './highlight.directive';
+import { KebabcasePipe } from './kebabcase.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SelectComponent } from './select/select.component';
     UserFormComponent,
     CounterComponent,
     MultiStateButtonComponent,
-    SelectComponent
+    SelectComponent,
+    HighlightDirective,
+    KebabcasePipe
   ],
   imports: [
     BrowserModule,
