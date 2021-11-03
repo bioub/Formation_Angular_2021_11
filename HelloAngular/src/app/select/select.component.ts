@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-select',
@@ -8,14 +8,22 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SelectComponent implements OnInit {
 
-  items = ['red', 'green', 'blue'];
-  selected = 'green';
+  @Input() items = ['red', 'green', 'blue'];
+  @Input() selected = '';
+
+  @Output() selectedChange = new EventEmitter<string>();
 
   menuOpen = false;
 
-  constructor() { }
+  constructor() {
+    console.log('constructor', this.selected); // green
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit', this.selected); // Eric
+    if (!this.selected && this.items.length) {
+      this.selected = this.items[0];
+    }
   }
 
   toggleMenuOpen() {
@@ -23,7 +31,8 @@ export class SelectComponent implements OnInit {
   }
 
   selectValue(value: string) {
-    this.selected = value;
+    this.selected = value; // modifie la valeur interne
+    this.selectedChange.emit(value); // notifie le parent de mettre à jour sa valeur
   }
 
 }

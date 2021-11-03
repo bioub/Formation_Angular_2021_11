@@ -1,8 +1,12 @@
 <h2 appHighlight>hello</h2>
-<app-hello appHighlight></app-hello>
+<app-hello></app-hello>
+<app-hello [name]="selectedName"></app-hello>
+<app-hello [name]="'Titi'"></app-hello>
+<app-hello name="Titi"></app-hello>
 
 <h2>clock</h2>
-<app-clock></app-clock>
+<button (click)="showClock = !showClock">{{ showClock ? 'Off' : 'On' }}</button>
+<app-clock *ngIf="showClock"></app-clock>
 
 <h2>{{ 'user form' | kebabcase }} </h2>
 <app-user-form></app-user-form>
@@ -14,6 +18,10 @@
 <app-multi-state-button></app-multi-state-button>
 
 <h2>select</h2>
-<app-select></app-select>
+<!-- <app-select [items]="names" [selected]="selectedName" (selectedChange)="selectedName = $event"></app-select>
+<app-select [items]="names" [(selected)]="selectedName"></app-select> -->
 
 
+<app-select [items]="names" (selectedChange)="selectedName = $event"></app-select>
+
+<p>Vous avez selectionné : {{ selectedName }}</p>

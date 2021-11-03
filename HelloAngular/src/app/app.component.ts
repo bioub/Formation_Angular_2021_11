@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  selectedName = 'Eric';
+  names = ['Romain', 'Eric', 'Thomas', 'Mathilde'];
 
+  showClock = true;
 }
