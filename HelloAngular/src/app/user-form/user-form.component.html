@@ -1,15 +1,47 @@
-<form>
-  <div>
+<!-- <form (submit)="save($event)">
+  <div class="row" [class.empty]="user.username === ''">
     Username : <input type="text" [value]="user.username" (input)="user.username = $any($event.target).value" />
   </div>
-  <div>
-    Email : <input type="email" [value]="user.email" (input)="user.email = $any($event.target).value" />
+  <div class="row" [ngClass]="{empty: user.email === ''}">
+    Email : <input type="email" [value]="user.email" (input)="user.email = emailEl.value" #emailEl />
   </div>
   <div>
     Is Admin : <input type="checkbox" [checked]="user.isAdmin" (change)="user.isAdmin = $any($event.target).checked" />
+  </div>
+  <div>
+    <button [attr.role]="'button'">Save</button>
+  </div>
+</form> -->
+
+<form (submit)="save($event)">
+  <div class="row" [class.empty]="user.username === ''">
+    Username : <input type="text" name="username" [ngModel]="user.username" (ngModelChange)="user.username = $event" />
+    <!-- <ng-template [ngIf]="user.username === ''">
+      <span>Le nom d'utilisateur est obligatoire</span>
+    </ng-template> -->
+    <span *ngIf="user.username === ''">Le nom d'utilisateur est obligatoire</span>
+  </div>
+  <div class="row" [ngClass]="{empty: user.email === ''}">
+    <!-- Email : <input type="email" name="email" [ngModel]="user.email" (ngModelChange)="user.email = $event" /> -->
+    Email : <input type="email" name="email" [(ngModel)]="user.email" />
+    <!-- [()] BANANA IN A BOX -->
+    <!-- <ng-template [ngIf]="user.email === ''">
+      <span>L'email est obligatoire</span>
+    </ng-template> -->
+    <span *ngIf="user.email === ''">L'email est obligatoire</span>
+  </div>
+  <div>
+    Is Admin : <input type="checkbox" name="isAdmin" [ngModel]="user.isAdmin" (ngModelChange)="user.isAdmin = $event" />
+  </div>
+  <div>
+    <button [attr.role]="'button'">Save</button>
   </div>
 </form>
 
 <p>
   Infos : {{user | json}}
 </p>
+
+<!-- <p>
+  Valeur saisie dans le champs email : {{ emailEl.value }}
+</p> -->

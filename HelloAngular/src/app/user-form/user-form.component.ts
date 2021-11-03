@@ -20,4 +20,9 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(event: Event) {
+    event.preventDefault();
+    
+  }
+
 }

@@ -1,4 +1,4 @@
-<button (click)="increment($event.clientX)">
+<button (click)="increment()" [ngStyle]="{backgroundColor: count >= 10 ? 'red' : 'green'}">
   {{ count }}
 </button>
 
@@ -6,6 +6,6 @@
 
 <!--
   buttonEl.addEventListener('click', ($event) => {
-    increment($event.clientX)
+    increment()
   });
 -->
