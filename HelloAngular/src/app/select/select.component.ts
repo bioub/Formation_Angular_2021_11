@@ -16,11 +16,11 @@ export class SelectComponent implements OnInit {
   menuOpen = false;
 
   constructor() {
-    console.log('constructor', this.selected); // green
+    console.log('constructor', this.selected); // ''
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit', this.selected); // Eric
+    console.log('ngOnInit', this.selected); // 'Eric'
     if (!this.selected && this.items.length) {
       this.selected = this.items[0];
     }

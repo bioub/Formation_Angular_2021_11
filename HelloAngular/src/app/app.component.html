@@ -1,4 +1,4 @@
-<h2 appHighlight>hello</h2>
+<h2>hello</h2>
 <app-hello></app-hello>
 <app-hello [name]="selectedName"></app-hello>
 <app-hello [name]="'Titi'"></app-hello>
@@ -26,3 +26,24 @@
 <app-select [items]="names" (selectedChange)="selectedName = $event"></app-select>
 
 <p>Vous avez selectionné : {{ selectedName }}</p>
+
+<h2>Directive appHighlight</h2>
+<p appHighlight>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad cupiditate esse velit. Atque labore ducimus, pariatur laboriosam molestiae aut cum iusto accusamus reprehenderit exercitationem beatae nemo, commodi, ad quo maxime.</p>
+<p [appHighlight]="'lightblue'">Assumenda optio quia similique cupiditate placeat ab hic, sed deserunt a omnis quibusdam voluptatum beatae odio. Nemo facilis asperiores, excepturi debitis explicabo doloribus, ad, rerum ullam molestias obcaecati mollitia esse.</p>
+<p appHighlight="lightblue">Nihil corrupti officia tenetur maxime suscipit quam, voluptate eligendi! Quisquam quidem omnis iste ea deserunt eius magnam porro, pariatur molestiae at repellendus consectetur itaque modi dolore culpa! Numquam, quam harum.</p>
+<p [appHighlight]="'lightblue'" [appHighlightTimeout]="2000">Veniam praesentium nisi animi tempora dolorem quia possimus, reprehenderit deserunt facere quisquam soluta, incidunt omnis doloremque aspernatur nulla nam facilis rerum provident voluptatem laborum ratione! Tempora illo possimus excepturi sequi!</p>
+<p>Reiciendis inventore sint doloribus porro adipisci ratione totam consequuntur possimus quod, consequatur quaerat dignissimos dolorem, quisquam incidunt. Illum ipsa deleniti ea ex ad laboriosam culpa consequuntur quam provident quas! Porro?</p>
+
+<h2>card</h2>
+<app-card>
+  <h2 #h2>Mon titre</h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ex repudiandae ad corrupti sunt voluptatem earum distinctio, exercitationem quia. Sit aperiam quas esse ut omnis architecto in doloribus! Nostrum, libero.</p>
+  <p>Sequi, cupiditate veniam ex iusto odio accusantium sunt alias aliquam unde nam! Cum laudantium debitis dolor esse sed sequi, repudiandae vero non excepturi ad voluptatum veritatis fugiat quos similique recusandae.</p>
+  <p>Qui, distinctio at molestiae voluptatibus fuga perferendis eveniet tempora accusamus. Consectetur doloremque ea corrupti deserunt autem, quae velit. Odio est minus porro perspiciatis ab quaerat pariatur soluta odit quibusdam eaque?</p>
+</app-card>
+
+<app-card>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ex repudiandae ad corrupti sunt voluptatem earum distinctio, exercitationem quia. Sit aperiam quas esse ut omnis architecto in doloribus! Nostrum, libero.</p>
+  <p>Sequi, cupiditate veniam ex iusto odio accusantium sunt alias aliquam unde nam! Cum laudantium debitis dolor esse sed sequi, repudiandae vero non excepturi ad voluptatum veritatis fugiat quos similique recusandae.</p>
+  <p>Qui, distinctio at molestiae voluptatibus fuga perferendis eveniet tempora accusamus. Consectetur doloremque ea corrupti deserunt autem, quae velit. Odio est minus porro perspiciatis ab quaerat pariatur soluta odit quibusdam eaque?</p>
+</app-card>

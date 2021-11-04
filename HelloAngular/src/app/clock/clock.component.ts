@@ -23,7 +23,7 @@ export class ClockComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (!changes.delay.firstChange) {
+    if (!changes.delay.firstChange && changes.delay.currentValue !== changes.delay.previousValue) {
       clearInterval(this.interval);
       this.interval = setInterval(() => {
         this.now = new Date();

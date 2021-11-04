@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+}
+
+.title {
+  background-color: lightblue;
+  padding: 5px;
+}
+
+.body {
+  padding: 5px;
+}

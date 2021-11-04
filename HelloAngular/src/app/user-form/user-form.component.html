@@ -13,6 +13,11 @@
   </div>
 </form> -->
 
+<!-- <p>
+  Valeur saisie dans le champs email : {{ emailEl.value }}
+</p> -->
+
+
 <form (submit)="save($event)">
   <div class="row" [class.empty]="user.username === ''">
     Username : <input type="text" name="username" [ngModel]="user.username" (ngModelChange)="user.username = $event" />
@@ -42,6 +47,3 @@
   Infos : {{user | json}}
 </p>
 
-<!-- <p>
-  Valeur saisie dans le champs email : {{ emailEl.value }}
-</p> -->

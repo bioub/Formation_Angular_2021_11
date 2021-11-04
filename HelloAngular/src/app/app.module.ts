@@ -11,6 +11,7 @@ import { MultiStateButtonComponent } from './multi-state-button/multi-state-butt
 import { SelectComponent } from './select/select.component';
 import { HighlightDirective } from './highlight.directive';
 import { KebabcasePipe } from './kebabcase.pipe';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { KebabcasePipe } from './kebabcase.pipe';
     MultiStateButtonComponent,
     SelectComponent,
     HighlightDirective,
-    KebabcasePipe
+    KebabcasePipe,
+    CardComponent
   ],
   imports: [
     BrowserModule,
