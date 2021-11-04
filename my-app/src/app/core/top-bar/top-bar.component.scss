@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+a {
+  text-decoration: none;
+}
+
+a.current {
+  text-decoration: underline;
+}
