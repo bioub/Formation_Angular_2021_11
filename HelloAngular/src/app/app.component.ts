@@ -10,4 +10,6 @@ export class AppComponent {
   names = ['Romain', 'Eric', 'Thomas', 'Mathilde'];
 
   showClock = true;
+
+  delay = 2000;
 }

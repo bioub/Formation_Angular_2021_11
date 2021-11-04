@@ -6,7 +6,8 @@
 
 <h2>clock</h2>
 <button (click)="showClock = !showClock">{{ showClock ? 'Off' : 'On' }}</button>
-<app-clock *ngIf="showClock"></app-clock>
+<app-clock *ngIf="showClock" [delay]="delay"></app-clock>
+<input type="number" [(ngModel)]="delay" />
 
 <h2>{{ 'user form' | kebabcase }} </h2>
 <app-user-form></app-user-form>

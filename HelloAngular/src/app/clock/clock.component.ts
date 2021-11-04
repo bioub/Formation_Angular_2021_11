@@ -1,13 +1,15 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.css']
 })
-export class ClockComponent implements OnInit, OnDestroy {
+export class ClockComponent implements OnInit, OnDestroy, OnChanges {
 
   now = new Date();
+
+  @Input() delay = 1000;
 
   private interval!: any;
 
@@ -16,7 +18,17 @@ export class ClockComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.interval = setInterval(() => {
       this.now = new Date();
-    }, 1000);
+    }, this.delay);
+    console.log('ngOnInit', this.delay);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes.delay.firstChange) {
+      clearInterval(this.interval);
+      this.interval = setInterval(() => {
+        this.now = new Date();
+      }, this.delay);
+    }
   }
 
   ngOnDestroy(): void {
