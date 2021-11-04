@@ -27,7 +27,7 @@ import { CardComponent } from './card/card.component';
     CardComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, // exports Common, qui donne accès à ngIf, ngFor, | uppercase
     FormsModule, // donne accès à ngModel
   ],
   providers: [],
