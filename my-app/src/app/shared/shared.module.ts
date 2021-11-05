@@ -28,7 +28,6 @@ import { FormsModule } from '@angular/forms';
 
     // On peut aussi exporter des modules
     CommonModule, // si j'importe Shared, j'importe aussi Common
-    FormsModule, // si j'importe Shared, j'importe aussi Forms
   ]
 })
 export class SharedModule { }

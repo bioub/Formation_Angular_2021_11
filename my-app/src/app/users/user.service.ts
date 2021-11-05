@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { delay } from 'rxjs';
 import { User } from './user.model';
 
@@ -7,6 +7,8 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
+
+  add = new EventEmitter<User>();
 
   constructor(private httpClient: HttpClient) { }
 

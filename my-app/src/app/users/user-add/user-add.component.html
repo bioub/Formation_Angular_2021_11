@@ -1,1 +1,17 @@
-<p>user-add works!</p>
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+  <div>
+    Name: <input formControlName="name" />
+    <span *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']">
+      Name is required
+    </span>
+    <span *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['maxlength'] as maxlength">
+      Name must be less than {{ maxlength.requiredLength }} characters
+    </span>
+  </div>
+  <div>
+    Phone: <input formControlName="phone" />
+  </div>
+  <button [disabled]="userForm.invalid">
+    Save
+  </button>
+</form>

@@ -21,8 +21,8 @@ export class UserFormComponent implements OnInit {
   }
 
   save(event: Event) {
-    event.preventDefault();
-    
+    // event.preventDefault();
+
   }
 
 }

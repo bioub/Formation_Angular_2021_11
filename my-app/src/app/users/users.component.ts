@@ -28,6 +28,10 @@ export class UsersComponent implements OnInit {
       .subscribe((users) => {
         this.users = users;
       });
+
+    this.userService.add.subscribe((userFromServer) => {
+      this.users.push(userFromServer);
+    });
   }
 
 }

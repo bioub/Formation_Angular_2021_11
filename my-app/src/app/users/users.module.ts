@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UsersComponent } from './users.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
   ],
   imports: [
     SharedModule,
+    ReactiveFormsModule,
     UsersRoutingModule,
   ]
 })
