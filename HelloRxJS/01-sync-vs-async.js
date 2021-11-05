@@ -12,6 +12,13 @@ const fs = require('fs');
 // const bufferGI = fs.readFileSync('.gitignore');
 // console.log(bufferGI.toString('utf-8'));
 
+// pile d'appel
+// ^
+// |
+// |
+// |readFileSync XXXXXXXXXX - log - readFileSync XXXXXXXXXX - log
+// +-------------------------------------------------------------> temps
+
 // ASYNC: le thread est libéré sur le readFile
 // le code est plus dur à lire du fait des callbacks
 // (pire avec la gestion d'erreur) -> callback hell
@@ -25,3 +32,14 @@ fs.readFile('.editorconfig', (err, bufferEC) => {
 fs.readFile('.gitignore', (err, bufferGI) => {
   console.log(bufferGI.toString('utf-8'));
 });
+
+// pile d'appel
+// ^
+// |
+// |                                    lg            lg
+// |readFile - readFile ............... => .......... =>
+// +-------------------0-----------------------------------> temps
+
+// file d'attente (0ms) :
+// file d'attente (le fichier editorconfig a été lu) : =>
+// file d'attente (le fichier gitignore a été lu) : =>
