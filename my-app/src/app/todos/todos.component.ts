@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../todo.model';
+import { Todo } from './todo.model';
 
 @Component({
   selector: 'my-todos',
@@ -26,4 +26,12 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addTodo(todo: Todo) {
+    this.todos.push(todo);
+  }
+
+  deleteTodo(todo: Todo) {
+    const indexTodo = this.todos.indexOf(todo);
+    this.todos.splice(indexTodo, 1);
+  }
 }

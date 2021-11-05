@@ -1,1 +1,1 @@
-<my-todo-item *ngFor="let el of items" [item]="el"></my-todo-item>
+<my-todo-item *ngFor="let el of items" [item]="el" (delete)="deleteTodo($event)"></my-todo-item>
