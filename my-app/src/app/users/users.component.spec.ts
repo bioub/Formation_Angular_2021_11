@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { UsersComponent } from './users.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { UserService } from './user.service';
+import { of } from 'rxjs';
+import { User } from './user.model';
+import { EventEmitter } from '@angular/core';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -8,7 +14,25 @@ describe('UsersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersComponent ]
+      declarations: [ UsersComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
+      providers: [
+        {
+          provide: UserService,
+          useValue: {
+            add: new EventEmitter<User>(),
+            getAll() {
+              return of([
+                {id: 1, name: 'A'},
+                {id: 2, name: 'B'}
+              ])
+            }
+          }
+        }
+      ]
     })
     .compileComponents();
   });
