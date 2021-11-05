@@ -11,6 +11,8 @@ import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './users/user.service';
+import { of } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     NotFoundComponent,
   ],
-  imports: [ // equivalent au import ECMAScript pour les templates
+  imports: [
+    // equivalent au import ECMAScript pour les templates
     BrowserModule,
     HttpClientModule,
     SharedModule,
@@ -28,7 +31,30 @@ import { HttpClientModule } from '@angular/common/http';
     UsersModule,
     AppRoutingModule, // en dernier car contient la route **
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    // {
+    //   provide: UserService,
+    //   useValue: {
+    //     getAll() {
+    //       return of([{ id: 1, name: 'Toto' }]);
+    //     },
+    //   },
+    // },
+    // {
+    //   provide: UserService,
+    //   useFactory: () => {
+    //     return {
+    //       getAll() {
+    //         return of([{ id: 1, name: 'Toto' }]);
+    //       },
+    //     }
+    //   },
+    // },
+    // {
+    //   provide: UserService,
+    //   useClass: UserService
+    // }
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

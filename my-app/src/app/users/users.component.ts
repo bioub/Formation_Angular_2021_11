@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { User } from './user.model';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'my-users',
@@ -19,11 +20,11 @@ export class UsersComponent implements OnInit {
   //  }
   users: User[] = [];
 
-  constructor(private title: Title, private httpClient: HttpClient) {}
+  constructor(private title: Title, private userService: UserService) {}
 
   ngOnInit(): void {
     this.title.setTitle('Users List');
-    this.httpClient.get<User[]>('http://jsonplaceholder.typicode.com/users')
+    this.userService.getAll()
       .subscribe((users) => {
         this.users = users;
       });
